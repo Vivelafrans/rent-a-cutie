@@ -5,13 +5,12 @@ class RentalsController < ApplicationController
   end
 
   def create
-    @rental = Rental.new
+    @rental = Rental.new(rental_params)
     @user = current_user
     @cutie = Cutie.find(params[:cuty_id])
     @rental.cutie = @cutie
     @rental.user = @user
-    if params[:rental][:end_date] > params[:rental][:start_date]
-      @rental.save
+    if @rental.save
       redirect_to cuty_path(@rental.cutie), notice: 'The request was send successfully.'
     else
       render :new, notice: 'Check your dates'
