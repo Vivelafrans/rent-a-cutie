@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :rentals
   validates :age, :numericality => { greater_than_or_equal_to: 18 }
   validates :age, numericality: { only_integer: true }
+  mount_uploader :photo, PhotoUploader
 end
