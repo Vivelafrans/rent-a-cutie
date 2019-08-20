@@ -33,7 +33,7 @@ class CutiesController < ApplicationController
 
   # To allow user input from Cutie Create Form to be whitelisted
   def cutie_params
-    params.require(:cutie).permit(:ad_title, :name, :animal_type, :age, :gender, :hourly_price, :description)
+    params.require(:cutie).permit(:ad_title, :name, :animal_type, :age, :gender, :hourly_price, :description, :photo)
   end
 
   # To save Cuties to our database
