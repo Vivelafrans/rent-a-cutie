@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  get '/dashboard', to: 'users#dashboard'
+
   resources :cuties do
     resources :rentals, only: [ :index, :show, :new, :create, :edit, :update ]
   end
