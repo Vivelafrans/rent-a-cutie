@@ -15,12 +15,13 @@
 <%= link_to "See all cuties", cuties_path %>
 </div>
 
-<div>
-<%= link_to "Edit your cutie", edit_cuty_path(@cutie) %>
-</div>
+<% if @cutie.user == current_user %>
+  <div>
+  <%= link_to "Edit your cutie", edit_cuty_path(@cutie) %>
+  </div>
 
-<div>
-<%= link_to "Remove cutie", cuty_path(@cutie), method: :delete %>
-</div>
-
+  <div>
+  <%= link_to "Remove cutie", cuty_path(@cutie), method: :delete %>
+  </div>
+<% end %>
 
