@@ -1,0 +1,8 @@
+<h2>Rental Agreement</h2>
+
+<%= simple_form_for [@cutie, @rental] do |f| %>
+<%= f.input :start_date, :as => :datetime, html5: true %>
+<%= f.input :end_date, as: :datetime, html5: true %>
+<%= f.submit "Send rent-request" %>
+<% end %>
+<%= link_to 'Back', cuty_path(@cutie) %>
