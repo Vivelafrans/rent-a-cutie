@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :cuties
   has_many :rentals
+  validates :age, :numericality => { greater_than_or_equal_to: 18 }
+  validates :age, numericality: { only_integer: true }
 end
