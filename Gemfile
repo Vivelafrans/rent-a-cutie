@@ -20,6 +20,7 @@ gem 'devise'
 gem 'faker'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
+gem 'bootstrap', '~> 4.0.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
