@@ -1,0 +1,13 @@
+<h1>Add a Cutie to make other people happy</h1>
+
+<%= simple_form_for [current_user, @cutie] do |c| %>
+<%= c.input :ad_title %>
+<%= c.input :name %>
+<%= c.input :animal_type %>
+<%= c.input :age %>
+<%= c.input :gender %>
+<%= c.input :hourly_price %>
+<%= c.input :description %>
+<%= c.submit "Add a cutie" %>
+<% end %>
+
