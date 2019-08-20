@@ -1,2 +1,14 @@
-<h1>Cuties#edit</h1>
-<p>Find me in app/views/cuties/edit.html.erb</p>
+<h1>Update your Cutie</h1>
+
+<%= simple_form_for [@cutie] do |c| %>
+<%= c.input :ad_title %>
+<%= c.input :name %>
+<%= c.input :animal_type %>
+<%= c.input :age %>
+<%= c.input :gender %>
+<%= c.input :hourly_price %>
+<%= c.input :description %>
+<%= c.input :photo %>
+<%= c.input :photo_cache, as: :hidden %>
+<%= c.submit "Update your cutie" %>
+<% end %>
