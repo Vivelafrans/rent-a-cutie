@@ -1,2 +1,7 @@
-<h1>Cuties#index</h1>
-<p>Find me in app/views/cuties/index.html.erb</p>
+<h1>See all Cuties</h1>
+
+<ul>
+  <% @cuties.each do |cutie| %>
+  <li><%= link_to cutie.name, cuty_path(cutie) %></li>
+  <% end %>
+</ul>
