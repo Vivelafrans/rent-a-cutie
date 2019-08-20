@@ -1,2 +1,14 @@
-<h1>Cuties#show</h1>
-<p>Find me in app/views/cuties/show.html.erb</p>
+<h1><%= @cutie.name %></h1>
+
+<ul>
+  <li>Animal type: <%= @cutie.animal_type %></li>
+  <li>Age: <%= @cutie.age%></li>
+  <li>Gender: <%= @cutie.gender %></li>
+  <li>Hourly price: <%= @cutie.hourly_price %>€</li>
+  <li>Description: <%= @cutie.description %></li>
+  <li>Owner: <%= @cutie.user.name %></li>
+  <li> <%= cl_image_tag @cutie.photo, height: 300, width: 400, crop: :fill %>
+</li>
+</ul>
+
+<%= link_to "See all cuties", cuties_path %>
