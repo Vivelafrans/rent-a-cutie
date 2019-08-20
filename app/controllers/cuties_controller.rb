@@ -1,10 +1,11 @@
 class CutiesController < ApplicationController
+  before_action :find_cutie, only: [:show, :edit, :update, :destroy]
+
   def index
     @cuties = Cutie.all
   end
 
   def show
-    @cutie = Cutie.find(params[:id])
   end
 
   def new
@@ -20,10 +21,12 @@ class CutiesController < ApplicationController
     save_cutie(@cutie)
   end
 
-  def update
+  def edit
   end
 
-  def edit
+  def update
+    @cutie.update(cutie_params)
+    redirect_to cuty_path(@cutie)
   end
 
   def destroy
@@ -43,5 +46,9 @@ class CutiesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def find_cutie
+    @cutie = Cutie.find(params[:id])
   end
 end
