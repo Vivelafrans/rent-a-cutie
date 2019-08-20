@@ -30,6 +30,8 @@ class CutiesController < ApplicationController
   end
 
   def destroy
+    @cutie.destroy
+    redirect_to cuties_path
   end
 
   private
