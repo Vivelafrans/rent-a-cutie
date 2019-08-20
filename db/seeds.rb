@@ -40,6 +40,7 @@ end
 
 puts "Finished creating #{users.count} users"
 
+# In case we want to add rentals, but code needs to be finished
 # 150.times do
 #   Rental.create(
 #     user: users.sample
