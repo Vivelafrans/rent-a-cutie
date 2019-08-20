@@ -10,6 +10,9 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+    <div class="nav-bar">
+      <%= (link_to 'log out', destroy_user_session_path, method: :delete) if user_signed_in? %>
+    </div>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
