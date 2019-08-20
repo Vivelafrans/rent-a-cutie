@@ -3,9 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :cuties
+  has_many :owned_cuties, class_name: "Cutie"
   has_many :rentals
-  validates :age, :numericality => { greater_than_or_equal_to: 18 }
+  has_many :rented_cuties, through: :rentals, source: :cutie
+  validates :age, numericality: { greater_than_or_equal_to: 18 }
   validates :age, numericality: { only_integer: true }
   mount_uploader :photo, PhotoUploader
 end
