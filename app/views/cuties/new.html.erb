@@ -1,6 +1,6 @@
 <h1>Add a Cutie to make other people happy</h1>
 
-<%= simple_form_for [current_user, @cutie] do |c| %>
+<%= simple_form_for [@cutie] do |c| %>
 <%= c.input :ad_title %>
 <%= c.input :name %>
 <%= c.input :animal_type %>

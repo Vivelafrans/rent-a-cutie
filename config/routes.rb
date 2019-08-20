@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'cuties/index'
-  get 'cuties/show'
-  get 'cuties/new'
-  get 'cuties/create'
-  get 'cuties/update'
-  get 'cuties/edit'
-  get 'cuties/destroy'
   devise_for :users
   root to: 'pages#home'
 
