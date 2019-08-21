@@ -7,7 +7,32 @@
   <% end %>
 </ul>
 
-<h2>See all rentals</h2>
+<h2>Requests for your Cuties</h2>
+<ul>
+  <% @user.owner_rent_out.each do |r| %>
+  <li> <% @cutie = r[0] %> <%= @cutie.name %> <% @rental = r[1] %>
+      <div>
+            <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
+            <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
+            <p><strong>Rental-Status:</strong> <%= @rental.status %></p>
+      </div>
+      <%= link_to "Confirm/Decline", edit_cuty_rental_path(@cutie, @rental), class:"btn btn-primary" %></li>
+  <% end %>
+</ul>
+
+<h2>Status of your Cutie-Requests</h2>
+<ul>
+  <% @user.renter_rent.each do |r| %>
+  <li> <% @cutie = r[0] %> <%= @cutie.name %> <% @rental = r[1] %>
+      <div>
+            <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
+            <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
+            <p><strong>Rental-Status:</strong> <%= @rental.status %></p>
+      </div>
+  <% end %>
+</ul>
+
+
 
 <h2>Change your Account data</h2>
 
