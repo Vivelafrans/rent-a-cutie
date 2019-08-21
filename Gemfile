@@ -20,7 +20,7 @@ gem 'devise'
 gem 'faker'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '">= 4.3.1'
 gem 'flatpickr', '~> 2.3', '>= 2.3.5.0'
 
 group :development do
