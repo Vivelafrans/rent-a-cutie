@@ -3,6 +3,6 @@ class UsersController < ApplicationController
   # The dashboard.html.erb still has to be styled
   def dashboard
     @user = current_user
-    @cuties = Cutie.select(params[:user_id])
+    @cuties = Cutie.where(user: @user.id)
   end
 end

@@ -24,6 +24,7 @@ class User < ApplicationRecord
     return cuties
   end
 
+  [Cutie.first, Rental.first]
   #Display the cuties which a user requested to rent
   def renter_rent
     cuties = []
