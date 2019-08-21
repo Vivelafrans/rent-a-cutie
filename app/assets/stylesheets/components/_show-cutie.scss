@@ -8,6 +8,10 @@
 .show-cutie-body-wrapper {
   display: flex;
   justify-content: space-between;
+  margin-bottom: $margin-bottom-section;
+  p {
+    font-weight: lighter;
+  }
 }
 
 .show-cutie-edit-delete-buttons {
