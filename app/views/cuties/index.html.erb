@@ -1,7 +1,22 @@
-<h1>See all Cuties</h1>
+<div class="container">
+  <div class="row"><h1>See all Cuties</h1></div>
 
-<ul>
-  <% @cuties.each do |cutie| %>
-  <li><%= link_to cutie.name, cuty_path(cutie) %></li>
-  <% end %>
-</ul>
+  <div class="row">
+    <% @cuties.each do |cutie| %>
+      <div class="col-xs-12 col-sm-6 col-xl-4">
+        <div class="card-cutie">
+          <img src="<%= cutie.photo %>" />
+          <div class="card-cutie-infos">
+            <div>
+              <h2><%= link_to cutie.name, cuty_path(cutie), class: 'cutie-name' %></h2>
+              <p><%= cutie.description %></p>
+            </div>
+            <h2 class="card-cutie-pricing">€<%= '%.2f' % cutie.hourly_price %></h2>
+            <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-cutie-user avatar-bordered" /> -->
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

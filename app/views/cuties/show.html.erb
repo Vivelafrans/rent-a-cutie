@@ -1,31 +1,44 @@
-<h1><%= @cutie.name %></h1>
+  <div class="container">
+  <div class="show-cutie-title-wrapper section">
+    <div class="show-cutie-title">
+      <h1><%= @cutie.ad_title.capitalize %></h1>
+    </div>
+  </div>
+  <div class="show-cutie-body-wrapper">
+    <div class="show-cutie-body-text">
+      <h3>Animal type</h3>
+      <p><%= @cutie.animal_type %></p>
+      <h2>Age</h2>
+      <p><%= @cutie.age%></p>
+      <h2>Gender</h2>
+      <p><%= @cutie.gender %></p>
+      <p>Hourly price: €<%= '%.2f' % @cutie.hourly_price %></p>
+      <p>Description: <%= @cutie.description %></p>
+      <p>Owner: <%= @cutie.user.name %></p>
+      <div>
+        <%= link_to "Rent this Cutie", new_cuty_rental_path(@cutie), class: 'btn btn-success' %>
+      </div>
+    </div>
 
-<ul>
-  <li>Animal type: <%= @cutie.animal_type %></li>
-  <li>Age: <%= @cutie.age%></li>
-  <li>Gender: <%= @cutie.gender %></li>
-  <li>Hourly price: <%= @cutie.hourly_price %>€</li>
-  <li>Description: <%= @cutie.description %></li>
-  <li>Owner: <%= @cutie.user.name %></li>
-  <li> <%= cl_image_tag @cutie.photo, height: 300, width: 400, crop: :fill %>
-</li>
-</ul>
+    <div class=show-cutie-body-photo>
+      <%= cl_image_tag @cutie.photo, height: 300, width: 400, crop: :fill %>
+    </div>
+  </div>
 
-<div>
-<%= link_to "Rent this Cutie", new_cuty_rental_path(@cutie) %>
-</div>
+  <div class="show-cutie-edit-delete-buttons">
+    <% if @cutie.user == current_user %>
+      <div>
+        <%= link_to "Edit your cutie", edit_cuty_path(@cutie), class: 'btn btn-warning' %>
+      </div>
 
-<div>
-<%= link_to "See all cuties", cuties_path %>
-</div>
-
-<% if @cutie.user == current_user %>
-  <div>
-  <%= link_to "Edit your cutie", edit_cuty_path(@cutie) %>
+      <div>
+        <%= link_to "Remove cutie", cuty_path(@cutie), method: :delete, class: 'btn btn-danger' %>
+      </div>
+    <% end %>
   </div>
 
   <div>
-  <%= link_to "Remove cutie", cuty_path(@cutie), method: :delete %>
+    <%= link_to "Back to Cutie Overview", cuties_path, class: 'btn btn-info' %>
   </div>
-<% end %>
 
+  </div>

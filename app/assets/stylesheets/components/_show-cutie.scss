@@ -1,0 +1,17 @@
+.show-cutie-title-wrapper {
+  text-align: center;
+
+  .show-cutie-title {
+    // WHATEVER CODE TO MAKE THIS INTO A nice box title
+  }
+}
+.show-cutie-body-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.show-cutie-edit-delete-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+}
