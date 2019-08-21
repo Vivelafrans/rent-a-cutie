@@ -1,43 +1,43 @@
 <div class="container">
-<h1>Dashboard</h1>
+  <h1>Dashboard</h1>
 
-<h2>See all your cuties</h2>
- <ul>
-  <% @cuties.each do |cutie| %>
-  <li class = "list_request"> <p class = "pet_name" ><%= link_to cutie.name, cuty_path(cutie) %></p> <p>cutie.description</p> </li>
-  <% end %>
-</ul>
+  <h2>See all your cuties</h2>
+  <ul>
+    <% @cuties.each do |cutie| %>
+    <li class = "list_request"> <p class = "pet_name" ><%= link_to cutie.name, cuty_path(cutie) %></p> <p class = "list_item">cutie.description</p> </li>
+    <% end %>
+  </ul>
 
-<h2>Requests for your Cuties</h2>
-<ul>
-  <% @user.owner_rent_out.each do |r| %>
-  <li class = "list_request"> <% @cutie = r[0] %> <% @rental = r[1] %> <p class = "pet_name"><%= @cutie.name %></p>
+  <h2>Requests for your Cuties</h2>
+  <ul>
+    <% @user.owner_rent_out.each do |r| %>
+    <li class = "list_request"> <% @cutie = r[0] %> <% @rental = r[1] %> <p class = "pet_name"><%= @cutie.name %></p>
       <div class = "list_item">
-            <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
-            <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
-            <p><strong>Renter:</strong> <%= @rental.user.name %></p>
-            <p><strong>Rental-Status:</strong> <%= @rental.status %></p>
-      </div>
+        <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
+        <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
+        <p><strong>Renter:</strong> <%= @rental.user.name %></p>
+        <p><strong>Rental-Status:</strong> <%= @rental.status %></p>
       </div>
       <%= link_to "Confirm/Decline", edit_cuty_rental_path(@cutie, @rental), class:"btn btn-primary" %></li>
-  <% end %>
-</ul>
+    <% end %>
+  </ul>
 
-<h2>Status of your Cutie-Requests</h2>
-<ul>
-  <% @user.renter_rent.each do |r| %>
-  <li class = "list_request"> <% @cutie = r[0] %> <% @rental = r[1] %> <p class = "pet_name"><%= @cutie.name %></p>
+  <h2>Status of your Cutie-Requests</h2>
+  <ul>
+    <% @user.renter_rent.each do |r| %>
+    <li class = "list_request"> <% @cutie = r[0] %> <% @rental = r[1] %> <p class = "pet_name"><%= @cutie.name %></p>
       <div class = "list_item">
-            <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
-            <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
-            <p><strong>Rental-Status:</strong> <%= @rental.status %></p>
+        <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
+        <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
+        <p><strong>Rental-Status:</strong> <%= @rental.status %></p>
       </div>
-  <% end %>
-</ul>
+    </li>
+      <% end %>
+    </ul>
 
 
 
-<h2>Change your Account data</h2>
+    <h2>Change your Account data</h2>
 
-<%= link_to "Edit your Profile", edit_user_registration_path, class:"btn btn-primary" %>
+    <%= link_to "Edit your Profile", edit_user_registration_path, class:"btn btn-primary" %>
 </div>
