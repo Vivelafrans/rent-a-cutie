@@ -1,0 +1,19 @@
+.list_request {
+  background-color: white;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 600px;
+}
+
+.list_item {
+  padding-left: 40px;
+}
+
+.pet_name {
+  font-size: 20px;
+  font-weight: bold;
+}
