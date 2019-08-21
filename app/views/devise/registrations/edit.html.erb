@@ -21,15 +21,27 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :name,
+                required: true %>
+    <%= f.input :age,
+                hint: ("Minimum age required is 18"),
+                required: true %>
+    <%= f.input :phone_number,
+                required: true %>
+    <%= f.input :street,
+                required: true %>
+    <%= f.input :postcode,
+                required: true %>
+    <%= f.input :city,
+                required: true %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Update", class:"btn btn-primary my-2" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back, class:"btn btn-primary" %>
