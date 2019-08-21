@@ -11,10 +11,20 @@ class RentalsController < ApplicationController
     @rental.cutie = @cutie
     @rental.user = @user
     if @rental.save
+    raise
       redirect_to cuty_path(@rental.cutie), notice: 'The request was send successfully.'
     else
       render :new, notice: 'Check your dates'
     end
+  end
+
+  def edit
+    @rental = Rental.find(params[:id])
+  end
+
+  def update
+    @rental = Rental.find(params[:id])
+    @rental.update(params.require(:rental).permit(:status))
   end
 
   private
