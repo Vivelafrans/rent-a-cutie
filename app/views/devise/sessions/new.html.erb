@@ -1,5 +1,11 @@
-<h2>Log in</h2>
+<div class="container">
 
+<div class="row">
+<h2 class="mx-auto my-3">Log in</h2>
+</div>
+
+<div class="row mx-auto">
+  <div class="col-12">
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
@@ -12,9 +18,19 @@
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
+
+
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "Log in", class:"btn btn-primary col-12" %>
   </div>
 <% end %>
+</div>
+</div>
 
+
+<div class="row my-3">
+  <div class="loglinks mx-auto">
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
