@@ -38,11 +38,11 @@
       <div id="confirm">
         <%= simple_form_for [@cutie, @rental] do |f| %>
         <%= f.hidden_field :status, value: "Confirmed" %>
-        <%= f.submit "Confirm", class:"btn btn-primary width", id:"confirm_button"%>
+        <%= f.submit "Confirm", class:"btn-confirm width", id:"confirm_button"%>
         <% end %>
         <%= simple_form_for [@cutie, @rental] do |f| %>
         <%= f.hidden_field :status, value: "Declined" %>
-        <%= f.submit "Decline", class:"btn btn-primary width", id:"decline_button"%>
+        <%= f.submit "Decline", class:"btn-confirm width", id:"decline_button"%>
         <% end %>
       </div>
       <% end %>
