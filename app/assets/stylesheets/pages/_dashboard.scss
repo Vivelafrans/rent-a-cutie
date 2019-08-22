@@ -1,47 +1,5 @@
-.list_request {
-  background-color: white;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 20px;
-  margin-bottom: 20px;
-  width: 600px;
-  margin: 0px auto;
-}
-
-.list_item {
-  padding-left: 40px;
-  padding-top: 16px;
-  text-align: left;
-}
-
-.pet_name {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.profile_pic {
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: inline-block;
-  text-align: center;
-  padding: 10px;
-  margin-bottom: 50px;
-}
-
-.picture {
-  display: inline-block;
-  border-radius: 50%;
-  object-fit: cover;
-  overflow: hidden;
-}
 .center {
   text-align: center;
-}
-
-.big {
-  width: 100%;
 }
 
 #sub_header{
@@ -68,4 +26,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
+}
+
+.green {
+  font-weight: bold;
+  color: green;
+}
+
+.red {
+  font-weight: bold;
+  color: red;
 }

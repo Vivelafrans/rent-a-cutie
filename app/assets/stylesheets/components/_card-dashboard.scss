@@ -1,0 +1,41 @@
+.card_request {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.list_request {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 600px;
+  margin: 0px auto;
+  margin-bottom: 20px;
+}
+
+.list_item {
+  padding-left: 40px;
+  padding-top: 16px;
+  text-align: left;
+}
+
+.pet_name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#confirm {
+  padding-left: 40px;
+}
+
+.width {
+  width: 100px;
+  margin: 10px;
+}
