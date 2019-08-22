@@ -1,5 +1,10 @@
 <div class="container">
   <h1>Dashboard</h1>
+  <h2>Change your Account data</h2>
+  <div class="profile_pic">
+  <%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
+  <%= link_to "Edit your Profile", edit_user_registration_path, class:"btn btn-primary" %>
+  </div>
 
   <h2>See all your cuties</h2>
   <ul>
@@ -16,10 +21,28 @@
         <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
         <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
         <p><strong>Renter:</strong> <%= @rental.user.name %></p>
-        <p><strong>Rental-Status:</strong> <%= @rental.status %></p>
+        <p><strong>Rental-Status:</strong>  <span id="color"><%= @rental.status %></span></p>
       </div>
-      <%= link_to "Confirm/Decline", edit_cuty_rental_path(@cutie, @rental), class:"btn btn-primary" %></li>
+      <% if @rental.status == "Pendent" %>
+      <div id="confirm">
+        <%= simple_form_for [@cutie, @rental] do |f| %>
+        <%= f.hidden_field :status, value: "Confirmed" %>
+        <%= f.submit "Confirm" %>
+        <% end %>
+        <%= simple_form_for [@cutie, @rental] do |f| %>
+        <%= f.hidden_field :status, value: "Declined" %>
+        <%= f.submit "Decline" %>
+        <% end %>
+      </div>
+      <% end %>
+      <% if @rental.status == "Confirmed" %>
+      <style> #color { color: green; font-weight: bolder; }</style>
+      <% elsif @rental.status == "Declined" %>
+      <style> #color { color: red; font-weight: bolder; }</style>
+      <% end %>
+    </li>
     <% end %>
+
   </ul>
 
   <h2>Status of your Cutie-Requests</h2>
@@ -32,12 +55,9 @@
         <p><strong>Rental-Status:</strong> <%= @rental.status %></p>
       </div>
     </li>
-      <% end %>
-    </ul>
+    <% end %>
+  </ul>
 
 
 
-    <h2>Change your Account data</h2>
-
-    <%= link_to "Edit your Profile", edit_user_registration_path, class:"btn btn-primary" %>
 </div>
