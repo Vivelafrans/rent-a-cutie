@@ -1,4 +1,4 @@
-.btn-ghost {
+.btn-confirm {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
   padding: 8px 24px;
@@ -8,11 +8,11 @@
   transition: opacity 0.3s ease;
 }
 
-.btn-ghost:hover {
+.btn-confirm:hover {
   opacity: 1;
 }
 
-.btn-ghost-danger {
+.btn-remove {
   color: #eb3d34;
   border: 1px solid #eb3d34;
   padding: 8px 24px;
@@ -22,11 +22,11 @@
   transition: opacity 0.3s ease;
 }
 
-.btn-ghost-danger:hover {
+.btn-remove:hover {
   opacity: 1;
 }
 
-.btn-ghost-edit {
+.btn-edit {
   color: #ebc334;
   border: 1px solid #ebc334;
   padding: 8px 24px;
@@ -36,7 +36,7 @@
   transition: opacity 0.3s ease;
 }
 
-.btn-ghost-edit:hover {
+.btn-edit:hover {
   opacity: 1;
 }
 
