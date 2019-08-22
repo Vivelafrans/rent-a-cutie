@@ -7,13 +7,65 @@
   padding: 20px;
   margin-bottom: 20px;
   width: 600px;
+  margin: 0px auto;
 }
 
 .list_item {
   padding-left: 40px;
+  padding-top: 16px;
+  text-align: left;
 }
 
 .pet_name {
   font-size: 20px;
   font-weight: bold;
+}
+
+.profile_pic {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+.picture {
+  display: inline-block;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+}
+.center {
+  text-align: center;
+}
+
+.big {
+  width: 100%;
+}
+
+#sub_header{
+  padding-bottom: 30px;
+}
+
+#cutie_description {
+  padding-left: 40px;
+}
+
+#header {
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+
+.color {
+  background: white;
+}
+
+.grid_pic {
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
 }

@@ -1,19 +1,25 @@
-<div class="container">
-  <h1>Dashboard</h1>
-  <h2>Change your Account data</h2>
+<div class="container center">
+  <h1 id="header">Dashboard</h1>
   <div class="profile_pic">
-  <%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
-  <%= link_to "Edit your Profile", edit_user_registration_path, class:"btn btn-primary" %>
+  <h2 id="sub_header">Change your Account data</h2>
+  <div class="picture"><%= cl_image_tag @user.photo, height: 300, width: 300, crop: :fill %></div>
+  <div class="profile_edit"><%= link_to "Edit your Profile", edit_user_registration_path, class:"btn btn-light" %></div>
   </div>
 
-  <h2>See all your cuties</h2>
-  <ul>
+<div class="profile_pic big">
+  <h2 id="sub_header">See all your cuties</h2>
+  <div class="grid_pic">
     <% @cuties.each do |cutie| %>
-    <li class = "list_request"> <p class = "pet_name" ><%= link_to cutie.name, cuty_path(cutie) %></p> <p class = "list_item">cutie.description</p> </li>
+    <div class="profile_pic color">
+      <div class="picture"><%= cl_image_tag cutie.photo, height: 200, width: 200, crop: :fill %></div>
+      <div class="profile_edit"><%= link_to cutie.name, cuty_path(cutie) %></div>
+    </div>
+    <!-- <li class = "list_request"> <p class = "pet_name" ><%= link_to cutie.name, cuty_path(cutie) %></p> <div id="cutie_description"> <p><%= cutie.description %></p></div></li> -->
     <% end %>
-  </ul>
-
-  <h2>Requests for your Cuties</h2>
+  </div>
+</div>
+  <div class="profile_pic big">
+  <h2 id="sub_header">Requests for your Cuties</h2>
   <ul>
     <% @user.owner_rent_out.each do |r| %>
     <li class = "list_request"> <% @cutie = r[0] %> <% @rental = r[1] %> <p class = "pet_name"><%= @cutie.name %></p>
@@ -42,10 +48,11 @@
       <% end %>
     </li>
     <% end %>
-
   </ul>
+  </div>
 
-  <h2>Status of your Cutie-Requests</h2>
+  <div class="profile_pic big">
+  <h2 id="sub_header">Status of your Cutie-Requests</h2>
   <ul>
     <% @user.renter_rent.each do |r| %>
     <li class = "list_request"> <% @cutie = r[0] %> <% @rental = r[1] %> <p class = "pet_name"><%= @cutie.name %></p>
@@ -57,7 +64,7 @@
     </li>
     <% end %>
   </ul>
-
+</div>
 
 
 </div>
