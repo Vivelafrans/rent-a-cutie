@@ -5,4 +5,10 @@ class Cutie < ApplicationRecord
   validates :ad_title, uniqueness: true
   validates :age, numericality: { only_integer: true }
   mount_uploader :photo, PhotoUploader
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_animal_type,
+   against: [ :name, :animal_type ],
+   using: {
+    tsearch: { prefix: true }
+  }
 end

@@ -2,7 +2,11 @@ class CutiesController < ApplicationController
   before_action :find_cutie, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cuties = Cutie.all
+    if params[:query]
+      @cuties = Cutie.search_by_name_and_animal_type("#{params[:query]}")
+    else
+      @cuties = Cutie.all
+    end
   end
 
   def show
@@ -53,4 +57,5 @@ class CutiesController < ApplicationController
   def find_cutie
     @cutie = Cutie.find(params[:id])
   end
+
 end

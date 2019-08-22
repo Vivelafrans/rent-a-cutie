@@ -1,21 +1,38 @@
 <div class="container">
-  <div class="row"><h1 class= 'mx-auto my-3'>See all Cuties</h1></div>
+  <div class="row">
+    <h1 class= 'mx-auto my-3'>See all Cuties</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <%= form_tag cuties_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+        placeholder: "Find a Cutie"
+        %>
+        <div style="text-align:center" class="my-2">
+        <%= submit_tag "Search", class: "btn btn-primary text-center" %>
+        <% end %>
+        </div>
+    </div>
+  </div>
 
   <div class="row">
     <% @cuties.each do |cutie| %>
-      <div class="col-xs-12 col-sm-6 col-xl-4">
-        <div class="card-cutie">
-          <img src="<%= cutie.photo %>" />
-          <div class="card-cutie-infos">
-            <div>
-              <h2><%= link_to cutie.name, cuty_path(cutie), class: 'cutie-name' %></h2>
-              <p><%= cutie.description %></p>
-            </div>
-            <h2 class="card-cutie-pricing">€<%= '%.2f' % cutie.hourly_price %></h2>
-            <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-cutie-user avatar-bordered" /> -->
+    <div class="col-xs-12 col-sm-6 col-xl-4">
+      <div class="card-cutie">
+        <img src="<%= cutie.photo %>" />
+        <div class="card-cutie-infos">
+          <div>
+            <h2><%= link_to cutie.name, cuty_path(cutie), class: 'cutie-name' %></h2>
+            <p><%= cutie.description %></p>
           </div>
+          <h2 class="card-cutie-pricing">€<%= '%.2f' % cutie.hourly_price %></h2>
+          <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-cutie-user avatar-bordered" /> -->
         </div>
       </div>
+    </div>
     <% end %>
   </div>
 
