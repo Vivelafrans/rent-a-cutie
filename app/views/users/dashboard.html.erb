@@ -6,7 +6,7 @@
   <div class="profile_edit"><%= link_to "Edit your Profile", edit_user_registration_path, class:"btn btn-light" %></div>
   </div>
 
-<div class="profile_pic big">
+<div class="card_request">
   <h2 id="sub_header">See all your cuties</h2>
   <div class="grid_pic">
     <% @cuties.each do |cutie| %>
@@ -14,11 +14,10 @@
       <div class="picture"><%= cl_image_tag cutie.photo, height: 200, width: 200, crop: :fill %></div>
       <div class="profile_edit"><%= link_to cutie.name, cuty_path(cutie) %></div>
     </div>
-    <!-- <li class = "list_request"> <p class = "pet_name" ><%= link_to cutie.name, cuty_path(cutie) %></p> <div id="cutie_description"> <p><%= cutie.description %></p></div></li> -->
     <% end %>
   </div>
 </div>
-  <div class="profile_pic big">
+  <div class="card_request">
   <h2 id="sub_header">Requests for your Cuties</h2>
   <ul>
     <% @user.owner_rent_out.each do |r| %>
@@ -27,31 +26,32 @@
         <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
         <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
         <p><strong>Renter:</strong> <%= @rental.user.name %></p>
-        <p><strong>Rental-Status:</strong>  <span id="color"><%= @rental.status %></span></p>
+        <% if @rental.status == "Confirmed" %>
+          <p><strong>Rental-Status:</strong>  <span class="green"><%= @rental.status %></span></p>
+        <% elsif @rental.status == "Declined" %>
+          <p><strong>Rental-Status:</strong>  <span class="red"><%= @rental.status %></span></p>
+        <% else %>
+          <p><strong>Rental-Status:</strong>  <span><%= @rental.status %></span></p>
+        <% end %>
       </div>
-      <% if @rental.status == "Pendent" %>
+      <% if @rental.status == "Pending" %>
       <div id="confirm">
         <%= simple_form_for [@cutie, @rental] do |f| %>
         <%= f.hidden_field :status, value: "Confirmed" %>
-        <%= f.submit "Confirm" %>
+        <%= f.submit "Confirm", class:"btn btn-primary width", id:"confirm_button"%>
         <% end %>
         <%= simple_form_for [@cutie, @rental] do |f| %>
         <%= f.hidden_field :status, value: "Declined" %>
-        <%= f.submit "Decline" %>
+        <%= f.submit "Decline", class:"btn btn-primary width", id:"decline_button"%>
         <% end %>
       </div>
-      <% end %>
-      <% if @rental.status == "Confirmed" %>
-      <style> #color { color: green; font-weight: bolder; }</style>
-      <% elsif @rental.status == "Declined" %>
-      <style> #color { color: red; font-weight: bolder; }</style>
       <% end %>
     </li>
     <% end %>
   </ul>
   </div>
 
-  <div class="profile_pic big">
+  <div class="card_request">
   <h2 id="sub_header">Status of your Cutie-Requests</h2>
   <ul>
     <% @user.renter_rent.each do |r| %>
