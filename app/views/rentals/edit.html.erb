@@ -1,5 +1,5 @@
 <h2>Confirmation of Rental</h2>
 <%= simple_form_for [@cutie, @rental] do |f| %>
   <%= f.input :status, collection: ["Confirmed", "Declined"] %>
-<%= f.submit "Send" %>
+<%= f.submit "Send", class:"btn-confirm" %>
 <% end %>
