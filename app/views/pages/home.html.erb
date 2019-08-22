@@ -9,8 +9,77 @@
     <!-- <a class="btn btn-secondary" href="#">Come play with us!</a> -->
   </div>
 </div>
+
 <div class="container">
   <div class="btn-body">
-    <a href="#" class="btn-awesome" data-title="Come play with us!"></a>
+    <a href="/cuties" class="btn-awesome" data-title="Come play with us!"></a>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div id="carouselControl" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <% @cuties.each_with_index do |cutie, i| %>
+        <% if i % 3 == 0 %>
+        <div class="carousel-item <%= 'active' if cutie == @cuties.first  %>">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-xl-4">
+              <div class="card-cutie">
+                <img src="<%= cutie.photo %>" />
+                <div class="card-cutie-infos">
+                  <div>
+                    <h2><%= link_to cutie.name, cuty_path(cutie), class: 'cutie-name' %></h2>
+                    <p><%= cutie.description %></p>
+                  </div>
+                  <h2 class="card-cutie-pricing">€<%= '%.2f' % cutie.hourly_price %></h2>
+                </div>
+
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-xl-4">
+            <% if @cuties[i + 1] %>
+              <% second_cutie = @cuties[i + 1] %>
+                <div class="card-cutie">
+                  <img src="<%= second_cutie.photo %>" />
+                  <div class="card-cutie-infos">
+                    <div>
+                      <h2><%= link_to second_cutie.name, cuty_path(second_cutie), class: 'cutie-name' %></h2>
+                      <p><%= second_cutie.description %></p>
+                    </div>
+                    <h2 class="card-cutie-pricing">€<%= '%.2f' % second_cutie.hourly_price %></h2>
+                  </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-xl-4">
+              <% if @cuties[i + 2] %>
+                <% third_cutie = @cuties[i + 2] %>
+                  <div class="card-cutie">
+                    <img src="<%= third_cutie.photo %>" />
+                    <div class="card-cutie-infos">
+                      <div>
+                        <h2><%= link_to third_cutie.name, cuty_path(third_cutie), class: 'cutie-name' %></h2>
+                        <p><%= third_cutie.description %></p>
+                      </div>
+                      <h2 class="card-cutie-pricing">€<%= '%.2f' % third_cutie.hourly_price %></h2>
+                    </div>
+                  </div>
+              <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <a class="carousel-control-prev carousel-arrows" href="#carouselControl" role="button" data-slide="prev">
+      <i class="fas fa-caret-left carret"></i>
+    </a>
+    <a class="carousel-control-next carousel-arrows" href="#carouselControl" role="button" data-slide="next">
+      <i class="fas fa-caret-right carret"></i>
+    </a>
+    </div>
   </div>
 </div>
