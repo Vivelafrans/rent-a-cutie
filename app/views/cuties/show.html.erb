@@ -5,15 +5,15 @@
       </div>
     </div>
 
-    <div class="big-card">
-      <div class="show-cutie-edit-delete-buttons">
+    <div class="big-cutie-card">
+      <div class="show-cutie-edit-delete-buttons justify-content-center">
         <% if @cutie.user == current_user %>
           <div>
-            <%= link_to "Edit your cutie", edit_cuty_path(@cutie), class: 'btn btn-ghost' %>
+            <%= link_to "Edit your cutie", edit_cuty_path(@cutie), class: 'btn btn-edit my-3 mx-3' %>
           </div>
 
           <div>
-            <%= link_to "Remove cutie", cuty_path(@cutie), method: :delete, class: 'btn btn-ghost-danger' %>
+            <%= link_to "Remove cutie", cuty_path(@cutie), method: :delete, class: 'btn btn-remove my-3 mx-3' %>
           </div>
         <% end %>
       </div>
@@ -33,10 +33,10 @@
           <h3>Owner</h3>
           <p><%= @cutie.user.name %></p>
           <div>
-            <%= link_to "Rent this Cutie", new_cuty_rental_path(@cutie), class: 'btn btn-ghost' %>
+            <%= link_to "Rent this Cutie", new_cuty_rental_path(@cutie), class: 'btn btn-confirm' %>
           </div>
           <div>
-            <%= link_to "Back to Cutie Overview", cuties_path, class: 'btn btn-ghost my-3' %>
+            <%= link_to "Back to Cutie Overview", cuties_path, class: 'btn btn-confirm my-3' %>
           </div>
         </div>
 
