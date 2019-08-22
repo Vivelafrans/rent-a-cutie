@@ -1,14 +1,25 @@
-<div class="container">
-  <h1>Dashboard</h1>
+<div class="container center">
+  <h1 id="header">Dashboard</h1>
+  <div class="profile_pic">
+  <h2 id="sub_header">Change your Account data</h2>
+  <div class="picture"><%= cl_image_tag @user.photo, height: 300, width: 300, crop: :fill %></div>
+  <div class="profile_edit"><%= link_to "Edit your Profile", edit_user_registration_path, class:"btn btn-light" %></div>
+  </div>
 
-  <h2>See all your cuties</h2>
-  <ul>
+<div class="profile_pic big">
+  <h2 id="sub_header">See all your cuties</h2>
+  <div class="grid_pic">
     <% @cuties.each do |cutie| %>
-    <li class = "list_request"> <p class = "pet_name" ><%= link_to cutie.name, cuty_path(cutie) %></p> <p class = "list_item">cutie.description</p> </li>
+    <div class="profile_pic color">
+      <div class="picture"><%= cl_image_tag cutie.photo, height: 200, width: 200, crop: :fill %></div>
+      <div class="profile_edit"><%= link_to cutie.name, cuty_path(cutie) %></div>
+    </div>
+    <!-- <li class = "list_request"> <p class = "pet_name" ><%= link_to cutie.name, cuty_path(cutie) %></p> <div id="cutie_description"> <p><%= cutie.description %></p></div></li> -->
     <% end %>
-  </ul>
-
-  <h2>Requests for your Cuties</h2>
+  </div>
+</div>
+  <div class="profile_pic big">
+  <h2 id="sub_header">Requests for your Cuties</h2>
   <ul>
     <% @user.owner_rent_out.each do |r| %>
     <li class = "list_request"> <% @cutie = r[0] %> <% @rental = r[1] %> <p class = "pet_name"><%= @cutie.name %></p>
@@ -16,13 +27,32 @@
         <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
         <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
         <p><strong>Renter:</strong> <%= @rental.user.name %></p>
-        <p><strong>Rental-Status:</strong> <%= @rental.status %></p>
+        <p><strong>Rental-Status:</strong>  <span id="color"><%= @rental.status %></span></p>
       </div>
-      <%= link_to "Confirm/Decline", edit_cuty_rental_path(@cutie, @rental), class:"btn btn-primary" %></li>
+      <% if @rental.status == "Pendent" %>
+      <div id="confirm">
+        <%= simple_form_for [@cutie, @rental] do |f| %>
+        <%= f.hidden_field :status, value: "Confirmed" %>
+        <%= f.submit "Confirm" %>
+        <% end %>
+        <%= simple_form_for [@cutie, @rental] do |f| %>
+        <%= f.hidden_field :status, value: "Declined" %>
+        <%= f.submit "Decline" %>
+        <% end %>
+      </div>
+      <% end %>
+      <% if @rental.status == "Confirmed" %>
+      <style> #color { color: green; font-weight: bolder; }</style>
+      <% elsif @rental.status == "Declined" %>
+      <style> #color { color: red; font-weight: bolder; }</style>
+      <% end %>
+    </li>
     <% end %>
   </ul>
+  </div>
 
-  <h2>Status of your Cutie-Requests</h2>
+  <div class="profile_pic big">
+  <h2 id="sub_header">Status of your Cutie-Requests</h2>
   <ul>
     <% @user.renter_rent.each do |r| %>
     <li class = "list_request"> <% @cutie = r[0] %> <% @rental = r[1] %> <p class = "pet_name"><%= @cutie.name %></p>
@@ -32,12 +62,9 @@
         <p><strong>Rental-Status:</strong> <%= @rental.status %></p>
       </div>
     </li>
-      <% end %>
-    </ul>
+    <% end %>
+  </ul>
+</div>
 
 
-
-    <h2>Change your Account data</h2>
-
-    <%= link_to "Edit your Profile", edit_user_registration_path, class:"btn btn-primary" %>
 </div>
