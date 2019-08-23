@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :owned_cuties, class_name: "Cutie"
   has_many :rentals
   has_many :rented_cuties, through: :rentals, source: :cutie
+  has_many :reviews
   validates :age, numericality: { greater_than_or_equal_to: 18 }
   validates :age, numericality: { only_integer: true }
   mount_uploader :photo, PhotoUploader
