@@ -17,4 +17,5 @@ class ReviewsController < ApplicationController
     else
       render :new, notice: 'Check your Review'
     end
+  end
 end
