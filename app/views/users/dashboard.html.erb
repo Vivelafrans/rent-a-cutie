@@ -19,9 +19,11 @@
         <div class="card-cutie-infos">
           <div>
             <h2 class="text-left"><%= link_to cutie.name, cuty_path(cutie), class: 'cutie-name' %></h2>
-            <p><%= cutie.description %></p>
+            <p class="text-left"><%= cutie.description %></p>
           </div>
-          <h2 class="card-cutie-pricing">€<%= '%.2f' % cutie.hourly_price %></h2>
+          <div class="card-cutie-user avatar-bordered d-flex justify-content-center align-items-center">
+            <p>€<%= '%.2f' % cutie.hourly_price %></p>
+          </div>
           <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-cutie-user avatar-bordered" /> -->
         </div>
       </div>
