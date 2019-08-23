@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :cuties do
     resources :rentals, only: [ :index, :show, :new, :create, :edit, :update ] do
-      resources :reviews, only [ :new, :create ]
+      resources :reviews, only: [ :new, :create ]
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
