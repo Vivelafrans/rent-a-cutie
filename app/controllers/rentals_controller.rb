@@ -11,7 +11,7 @@ class RentalsController < ApplicationController
     @rental.cutie = @cutie
     @rental.user = @user
     if @rental.save
-      redirect_to cuty_path(@rental.cutie), notice: 'The request was send successfully.'
+      redirect_to dashboard_path(@user), notice: 'The request was send successfully.'
     else
       render :new, notice: 'Check your dates'
     end

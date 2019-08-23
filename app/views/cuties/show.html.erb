@@ -8,13 +8,13 @@
     <div class="big-cutie-card">
       <div class="show-cutie-edit-delete-buttons justify-content-center">
         <% if @cutie.user == current_user %>
-          <div>
-            <%= link_to "Edit your cutie", edit_cuty_path(@cutie), class: 'btn btn-edit my-3 mx-3' %>
-          </div>
+        <div>
+          <%= link_to "Edit your cutie", edit_cuty_path(@cutie), class: 'btn btn-edit my-3 mx-3' %>
+        </div>
 
-          <div>
-            <%= link_to "Remove cutie", cuty_path(@cutie), method: :delete, class: 'btn btn-remove my-3 mx-3' %>
-          </div>
+        <div>
+          <%= link_to "Remove cutie", cuty_path(@cutie), method: :delete, class: 'btn btn-remove my-3 mx-3' %>
+        </div>
         <% end %>
       </div>
 
@@ -42,6 +42,19 @@
 
         <div class=show-cutie-body-photo>
           <%= cl_image_tag @cutie.photo, height: 300, width: 400, crop: :fill %>
+        </div>
+
+        <div class="rental_request">
+          <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+            <h2>Rental Agreement</h2>
+
+            <%= simple_form_for [@cutie, @rental] do |f| %>
+            <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.button :submit, "Send Rent-Request", class: 'btn btn-confirm'%>
+            <% end %>
+
+          </div>
         </div>
 
       </div>
