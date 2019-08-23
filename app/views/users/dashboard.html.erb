@@ -1,9 +1,11 @@
 <div class="container center">
   <h1 id="header">Dashboard</h1>
   <div class="profile_pic">
-    <h2 id="sub_header mt-3">Change your Account data</h2>
+    <div class="box-header mt-3">
+      <h2>Change your Account data</h2>
+    </div>
     <div class="picture"><%= cl_image_tag @user.photo, height: 300, width: 300, crop: :fill %></div>
-    <div class="profile_edit"><%= link_to "Edit your Profile", edit_user_registration_path, class:"btn btn-light" %></div>
+    <div class="profile_edit mb-3"><%= link_to "Edit your Profile", edit_user_registration_path, class:"btn-edit-2" %></div>
   </div>
 
   <div class="row" id="db-cards">
@@ -39,7 +41,7 @@
           <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
           <p><strong>Renter:</strong> <%= @rental.user.name %></p>
           <div class="renter">
-          <p><strong>Rating:</strong></p>
+          <p class="mr-1" ><strong>Rating:</strong></p>
           <% ratings = [] %>
           <% @rental.user.reviews.each do |ra| %>
             <% ratings << ra.rating.to_i %>
@@ -74,8 +76,10 @@
         </div>
         <% elsif @rental.status == "Confirmed" %>
         <div class="icon_rate">
-        <i class="far fa-check-circle"></i>
-        <%= link_to "Rate Renter", new_cuty_rental_review_path(@cutie, @rental), class: 'btn btn-confirm my-1' %>
+          <i class="far fa-check-circle"></i>
+          <div class="rate-button">
+          <%= link_to "Rate", new_cuty_rental_review_path(@cutie, @rental), class: 'btn btn-confirm my-1' %>
+          </div>
         </div>
         <% else %>
         <i class="far fa-times-circle"></i>

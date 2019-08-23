@@ -8,14 +8,20 @@
 
 .box-header {
   width: 100%;
+  color: white;
+  h2 {
+    font-size: 40px !important;
+  }
 }
 
 .center {
   text-align: center;
 }
 
-#sub_header{
+#subheader{
   padding-bottom: 30px;
+  color: white;
+  font-size: 40px;
 }
 
 #cutie_description {
