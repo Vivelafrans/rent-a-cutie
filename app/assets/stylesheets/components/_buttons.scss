@@ -16,12 +16,14 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
+  opacity: 0.8;
   background: linear-gradient(135deg, #6e8efb, #a777e3);
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: #1BCB7F;
+  opacity: 1;
+  // background: #1BCB7F;
   color: white;
 }
 
