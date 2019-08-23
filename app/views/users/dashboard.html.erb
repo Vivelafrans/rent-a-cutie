@@ -38,6 +38,21 @@
           <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
           <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
           <p><strong>Renter:</strong> <%= @rental.user.name %></p>
+          <div class="renter">
+          <p><strong>Rating:</strong></p>
+          <% ratings = [] %>
+          <% @rental.user.reviews.each do |ra| %>
+            <% ratings << ra.rating.to_i %>
+          <% end %>
+          <% if ratings.size != 0 %>
+            <% rating = ratings.sum / ratings.size unless ratings.size == 0 %>
+            <% rating.times do  %>
+            <span><i class="fas fa-star"></i></span>
+            <% end %>
+          <% else %>
+          <span>No rating</span>
+          <% end %>
+          </div>
           <% if @rental.status == "Confirmed" %>
           <p><strong>Rental-Status:</strong>  <span class="green"><%= @rental.status %></span></p>
           <% elsif @rental.status == "Declined" %>
@@ -58,7 +73,10 @@
           <% end %>
         </div>
         <% elsif @rental.status == "Confirmed" %>
+        <div class="icon_rate">
         <i class="far fa-check-circle"></i>
+        <%= link_to "Rate Renter", new_cuty_rental_review_path(@cutie, @rental), class: 'btn btn-confirm my-1' %>
+        </div>
         <% else %>
         <i class="far fa-times-circle"></i>
         <% end %>

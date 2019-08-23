@@ -1,8 +1,8 @@
 <div class="container">
   <h1 class= 'text-center my-3'>Please review the renter:</h1>
 
-  <%= simple_form_for [@cutie] do |c| %>
-  <%= c.input :rating, collection: { 1, 2, 3, 4, 5 } %>
+  <%= simple_form_for [@cutie, @rental, @review] do |c| %>
+  <%= c.input :rating, collection: [ 1, 2, 3, 4, 5 ] %>
   <%= c.input :comment %>
   <div style="text-align:center">
   <%= c.submit "Send the review", class: 'btn btn-confirm' %>

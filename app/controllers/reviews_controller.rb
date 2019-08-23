@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @rental = Rental.find(params[:rental_id])
+    @cutie = @rental.cutie
     @user = @rental.user
   end
 
@@ -17,5 +18,11 @@ class ReviewsController < ApplicationController
     else
       render :new, notice: 'Check your Review'
     end
+  end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:rating, :comment)
   end
 end
