@@ -3,7 +3,7 @@
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 1;
+  opacity: 0.8;
   transition: opacity 0.5s ease;
   background: linear-gradient(135deg, #6e8efb, #a777e3);
 }
@@ -26,13 +26,13 @@
 }
 
 .btn-remove {
-  color: #eb3d34;
-  border: 1px solid #eb3d34;
+  color: white;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+  background: linear-gradient(135deg, #eb3d34, #a777e3);
 }
 
 .btn-remove:hover {
@@ -40,13 +40,13 @@
 }
 
 .btn-edit {
-  color: #ebc334;
-  border: 1px solid #ebc334;
+  color: white;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+  background: linear-gradient(135deg, #ebc334, #a777e3);
 }
 
 .btn-edit:hover {
