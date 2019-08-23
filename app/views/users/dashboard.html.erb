@@ -29,10 +29,10 @@
 
   <div class="row" id="db-cards">
     <div class="box-header my-3">
-    <h2>Requests for your Cuties</h2>
+      <h2>Requests for your Cuties</h2>
     </div>
-      <% @user.owner_rent_out.each do |r| %>
-      <div class="col-xs-12 col-sm-12 col-xl-6">
+    <% @user.owner_rent_out.each do |r| %>
+    <div class="col-xs-12 col-sm-12 col-xl-6">
       <div class = "list_request mx-auto"> <% @cutie = r[0] %> <% @rental = r[1] %> <p class = "pet_name"><%= @cutie.name %></p>
         <div class = "list_item">
           <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
@@ -63,8 +63,8 @@
         <i class="far fa-times-circle"></i>
         <% end %>
       </div>
-      </div>
-      <% end %>
+    </div>
+    <% end %>
 
 
   </div>
@@ -73,22 +73,30 @@
     <div class="box-header my-3">
       <h2>Status of your cutie requests</h2>
     </div>
-
-    <div class="col-xs-12 col-sm-12 col-xl-6">
       <% @user.renter_rent.each do |r| %>
-          <div class = "list_request mx-auto">
-            <% @cutie = r[0] %> <% @rental = r[1] %>
+      <div class="col-xs-12 col-sm-12 col-xl-6">
+        <div class = "list_request mx-auto">
+          <% @cutie = r[0] %> <% @rental = r[1] %>
+          <div class="left-side">
             <img src="<%= @cutie.photo %>" class="avatar-large my-auto" />
-            <p class = "pet_name my-auto text-left"><%= @cutie.name %></p>
-            <div class = "list_item">
-              <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
-              <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
-              <p><strong>Rental-Status:</strong> <%= @rental.status %></p>
-            </div>
+            <p class = "pet_name_2 my-auto text-center"><%= @cutie.name %></p>
           </div>
+          <div class = "list_item">
+            <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
+            <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
+            <p><strong>Rental-Status:</strong> <%= @rental.status %></p>
+          </div>
+          <% if @rental.status == "Pending" %>
+          <i class="far fa-question-circle"></i>
+            <% elsif @rental.status == "Confirmed" %>
+          <i class="far fa-check-circle"></i>
+          <% else %>
+            <i class="far fa-times-circle"></i>
+          <% end %>
+        </div>
+      </div>
       <% end %>
     </div>
+
+
   </div>
-
-
-</div>

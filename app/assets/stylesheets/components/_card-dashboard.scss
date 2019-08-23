@@ -12,6 +12,10 @@
   background-color: white;
 }
 
+.left-side {
+  justify-content: center;
+}
+
 .list_request {
   background-color: white;
   display: flex;
@@ -36,6 +40,12 @@
   font-weight: bold;
   text-align: left;
   margin-left: 30px;
+}
+
+.pet_name_2 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
 }
 
 #confirm {
