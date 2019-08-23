@@ -71,19 +71,23 @@
 
   <div class="row" id="db-cards">
     <div class="box-header my-3">
-    <h2>Status of your cutie requests</h2>
+      <h2>Status of your cutie requests</h2>
     </div>
-    <ul>
+
+    <div class="col-xs-12 col-sm-12 col-xl-6">
       <% @user.renter_rent.each do |r| %>
-      <li class = "list_request"> <% @cutie = r[0] %> <% @rental = r[1] %> <p class = "pet_name"><%= @cutie.name %></p>
-        <div class = "list_item">
-          <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
-          <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
-          <p><strong>Rental-Status:</strong> <%= @rental.status %></p>
-        </div>
-      </li>
+          <div class = "list_request mx-auto">
+            <% @cutie = r[0] %> <% @rental = r[1] %>
+            <img src="<%= @cutie.photo %>" class="avatar-large my-auto" />
+            <p class = "pet_name my-auto text-left"><%= @cutie.name %></p>
+            <div class = "list_item">
+              <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
+              <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
+              <p><strong>Rental-Status:</strong> <%= @rental.status %></p>
+            </div>
+          </div>
       <% end %>
-    </ul>
+    </div>
   </div>
 
 
