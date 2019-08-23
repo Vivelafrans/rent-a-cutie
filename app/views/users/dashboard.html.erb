@@ -1,13 +1,13 @@
 <div class="container center">
   <h1 id="header">Dashboard</h1>
   <div class="profile_pic">
-    <h2 id="sub_header">Change your Account data</h2>
+    <h2 id="sub_header mt-3">Change your Account data</h2>
     <div class="picture"><%= cl_image_tag @user.photo, height: 300, width: 300, crop: :fill %></div>
     <div class="profile_edit"><%= link_to "Edit your Profile", edit_user_registration_path, class:"btn btn-light" %></div>
   </div>
 
   <div class="row" id="db-cards">
-    <div class="box-header">
+    <div class="box-header mt-3">
       <h2 >Your Cuties</h2>
     </div>
     <% @cuties.each do |cutie| %>
@@ -25,13 +25,15 @@
       </div>
     </div>
     <% end %>
-</div>
+  </div>
 
-  <div class="card_request">
-    <h2 id="sub_header">Requests for your Cuties</h2>
-    <ul>
+  <div class="row" id="db-cards">
+    <div class="box-header my-3">
+    <h2>Requests for your Cuties</h2>
+    </div>
       <% @user.owner_rent_out.each do |r| %>
-      <li class = "list_request"> <% @cutie = r[0] %> <% @rental = r[1] %> <p class = "pet_name"><%= @cutie.name %></p>
+      <div class="col-xs-12 col-sm-12 col-xl-6">
+      <div class = "list_request mx-auto"> <% @cutie = r[0] %> <% @rental = r[1] %> <p class = "pet_name"><%= @cutie.name %></p>
         <div class = "list_item">
           <p><strong>Start-Time:</strong> <%= @rental.start_date %></p>
           <p><strong>End-Time:</strong> <%= @rental.end_date %></p>
@@ -60,13 +62,17 @@
         <% else %>
         <i class="far fa-times-circle"></i>
         <% end %>
-      </li>
+      </div>
+      </div>
       <% end %>
-    </ul>
+
+
   </div>
 
-  <div class="card_request">
-    <h2 id="sub_header">Status of your Cutie-Requests</h2>
+  <div class="row" id="db-cards">
+    <div class="box-header my-3">
+    <h2>Status of your cutie requests</h2>
+    </div>
     <ul>
       <% @user.renter_rent.each do |r| %>
       <li class = "list_request"> <% @cutie = r[0] %> <% @rental = r[1] %> <p class = "pet_name"><%= @cutie.name %></p>
