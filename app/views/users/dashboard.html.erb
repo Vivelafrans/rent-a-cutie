@@ -7,21 +7,24 @@
   </div>
 
   <div class="row" id="db-cards">
-  <% @cuties.each do |cutie| %>
-  <div class="col-xs-12 col-sm-6 col-xl-4">
-    <div class="card-cutie">
-      <img src="<%= cutie.photo %>" />
-      <div class="card-cutie-infos">
-        <div>
-          <h2 class="text-left"><%= link_to cutie.name, cuty_path(cutie), class: 'cutie-name' %></h2>
-          <p><%= cutie.description %></p>
+    <div class="box-header">
+      <h2 >Your Cuties</h2>
+    </div>
+    <% @cuties.each do |cutie| %>
+    <div class="col-xs-12 col-sm-6 col-xl-4">
+      <div class="card-cutie">
+        <img src="<%= cutie.photo %>" />
+        <div class="card-cutie-infos">
+          <div>
+            <h2 class="text-left"><%= link_to cutie.name, cuty_path(cutie), class: 'cutie-name' %></h2>
+            <p><%= cutie.description %></p>
+          </div>
+          <h2 class="card-cutie-pricing">€<%= '%.2f' % cutie.hourly_price %></h2>
+          <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-cutie-user avatar-bordered" /> -->
         </div>
-        <h2 class="card-cutie-pricing">€<%= '%.2f' % cutie.hourly_price %></h2>
-        <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-cutie-user avatar-bordered" /> -->
       </div>
     </div>
-  </div>
-  <% end %>
+    <% end %>
 </div>
 
   <div class="card_request">
