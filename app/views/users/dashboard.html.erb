@@ -45,6 +45,10 @@
         <%= f.submit "Decline", class:"btn btn-primary width", id:"decline_button"%>
         <% end %>
       </div>
+      <% elsif @rental.status == "Confirmed" %>
+      <i class="far fa-check-circle"></i>
+      <% else %>
+      <i class="far fa-times-circle"></i>
       <% end %>
     </li>
     <% end %>
