@@ -17,7 +17,7 @@ gem 'webpacker'
 gem 'pg_search'
 
 # Added gems
-gem 'devise'
+gem 'devise', "~> 4.7.1"
 gem 'faker'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
