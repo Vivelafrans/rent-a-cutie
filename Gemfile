@@ -20,7 +20,7 @@ gem 'pg_search'
 gem 'devise', "~> 4.7.1"
 gem 'faker'
 gem 'cloudinary', '~> 1.9.1'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 gem 'flatpickr', '~> 2.3', '>= 2.3.5.0'
 
 group :development do
